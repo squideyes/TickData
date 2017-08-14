@@ -4,7 +4,7 @@ Before running HistDataFetch.exe, you need to set a few configuration items in t
 
 | Value | Notes |
 | ----- | ----- |
-| BasePath | The folder to save tick-data to (i.e. C:\TickData).  If the folder doesn't exist it will be created. |
+| TickDataPath | The folder to save tick-data to (i.e. C:\TickData).  If the folder doesn't exist it will be created. |
 | FirstYearToFetch | The first year to fetch tick-data for.  The year must be >= 2010.  Also, there is no "LastYearToFetch;" tick-data will be fetched up until the most recently available full month. |
 | AssetsToFetch | A comma-separated list of one or more  assets to fetch tick-data for (can be any combination of AUDCAD, AUDCHF, AUDHKD, AUDJPY, AUDNZD, AUDSGD, AUDUSD, CADCHF, CADHKD, CADJPY, CADSGD, CHFHKD, CHFJPY, CHFZAR, EURAUD, EURCAD, EURCHF, EURCZK, EURDKK, EURGBP, EURHKD, EURHUF, EURJPY, EURNOK, EURNZD, EURPLN, EURSEK, EURSGD, EURTRY, EURUSD, EURZAR, GBPAUD, GBPCAD, GBPCHF, GBPHKD, GBPJPY, GBPNZD, GBPPLN, GBPSGD, GBPUSD, GBPZAR, HKDJPY, NZDCAD, NZDCHF, NZDHKD, NZDJPY, NZDSGD, NZDUSD, SGDCHF, SGDHKD, SGDJPY, TRYJPY, USDCAD, USDCHF, USDCNH, USDCZK, USDDKK, USDHKD, USDHUF, USDINR, USDJPY, USDMXN, USDNOK, USDPLN, USDSAR, USDSEK, USDSGD, USDTHB, USDTRY, USDZAR, ZARJPY). 
 
