@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="TickDataPath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">D:\TickData</Value>
+      <Value Profile="(Default)">C:\Users\lberman\Desktop\TickData\Data</Value>
     </Setting>
     <Setting Name="AssetsToFetch" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">GBPCHF,GBPJPY,AUDUSD,EURUSD,GBPUSD,USDCAD,USDCHF,USDJPY,CADJPY</Value>
+      <Value Profile="(Default)">GBPCHF,GBPJPY,EURUSD</Value>
     </Setting>
     <Setting Name="FirstYearToFetch" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">2012</Value>

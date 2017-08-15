@@ -12,7 +12,7 @@ namespace TickData.HistDataFetch.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.1.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,7 +25,7 @@ namespace TickData.HistDataFetch.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D:\\TickData")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\lberman\\Desktop\\TickData\\Data")]
         public string TickDataPath {
             get {
                 return ((string)(this["TickDataPath"]));
@@ -34,7 +34,7 @@ namespace TickData.HistDataFetch.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("GBPCHF,GBPJPY,AUDUSD,EURUSD,GBPUSD,USDCAD,USDCHF,USDJPY,CADJPY")]
+        [global::System.Configuration.DefaultSettingValueAttribute("GBPCHF,GBPJPY,EURUSD")]
         public string AssetsToFetch {
             get {
                 return ((string)(this["AssetsToFetch"]));

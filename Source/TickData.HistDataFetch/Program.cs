@@ -97,8 +97,12 @@ namespace TickData.HistDataFetch
 
         private static void PurgeUnwantedTickFiles(DataKind dataKind)
         {
-            var folders = Directory.GetDirectories(Path.Combine(Default.TickDataPath,
-                Source.HistData.ToString(), dataKind.ToString()), "*.*",
+            var basePath = Path.Combine(Default.TickDataPath,
+                Source.HistData.ToString(), dataKind.ToString()) + "\\";
+
+            basePath.EnsurePathExists();
+
+            var folders = Directory.GetDirectories(basePath, "*.*",
                 SearchOption.AllDirectories).Where(f => CanPurge(f)).ToList();
 
             foreach (var folder in folders)
