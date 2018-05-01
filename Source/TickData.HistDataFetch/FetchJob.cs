@@ -15,15 +15,16 @@
 // You should have received a copy of the GNU General Public License
 // along with TickData.  If not, see <http://www.gnu.org/licenses/>.
 
+using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using TickData.Common.Helpers;
 using TickData.Common.Trading;
+using System.Linq;
 
 namespace TickData.HistDataFetch
 {
@@ -33,13 +34,9 @@ namespace TickData.HistDataFetch
             : base(archiveJob.Asset, archiveJob.Year, archiveJob.Month)
         {
         }
-
         private static async Task<string> GetTkAsync(
             HttpClient client, Uri pageUri, CancellationToken token)
         {
-            var tkRegex = new Regex(
-                "(?<=<input type=\"hidden\" name=\"tk\" id=\"tk\" value=\").*?(?=\"/>)");
-
             var response = await client.GetAsync(pageUri, token);
 
             if (token.IsCancellationRequested)
@@ -49,7 +46,19 @@ namespace TickData.HistDataFetch
 
             var html = await response.Content.ReadAsStringAsync();
 
-            return tkRegex.Match(html).Value;
+            var doc = new HtmlDocument();
+
+            doc.LoadHtml(html);
+
+            var tk = doc.DocumentNode.SelectNodes("//input")
+                .Where(x => x.Attributes["id"].Value == "tk")
+                .Select(x => x.Attributes["value"].Value)
+                .FirstOrDefault();
+
+            if (string.IsNullOrWhiteSpace(tk))
+                throw new Exception("A \"tk\" form-data value could not be found!");
+
+            return tk;
         }
 
         public async Task<(bool, int)> FetchAsync(CancellationToken token)

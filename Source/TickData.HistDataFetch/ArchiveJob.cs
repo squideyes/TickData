@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with TickData.  If not, see <http://www.gnu.org/licenses/>.
 
+using System;
 using System.IO;
 using System.Text;
 using TickData.Common.Trading;
@@ -55,8 +56,12 @@ namespace TickData.HistDataFetch
                 sb.Append(Path.DirectorySeparatorChar);
                 sb.Append(ArchiveName);
 
-                return Path.GetFullPath(Path.Combine(
-                    Properties.Settings.Default.TickDataPath, sb.ToString()));
+                var path = Properties.Settings.Default.TickDataPath;
+
+                path = path.Replace("%MYDOCUMENTS%", 
+                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+
+                return Path.GetFullPath(Path.Combine(path, sb.ToString()));
             }
         }
 
